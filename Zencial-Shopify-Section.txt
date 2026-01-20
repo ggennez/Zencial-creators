@@ -1,0 +1,264 @@
+<!-- 
+  INSTRUÇÕES IMPORTANTES PARA SHOPIFY:
+  1. No painel da Shopify, vá em Loja Virtual > Temas > Editar Código.
+  2. Na pasta SECTIONS (não em Snippets ou Templates), clique em "Adicionar uma nova seção".
+  3. Nomeie como: zencial-landing
+  4. Cole TODO o código abaixo dentro desse novo arquivo .liquid e salve.
+-->
+
+{%- style -%}
+  :root {
+    --z-pink: {{ section.settings.color_accent | default: '#ec4899' }};
+    --z-purple: #7c3aed;
+    --z-acid: #bef264;
+    --z-dark: #1c1917;
+  }
+
+  .z-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    font-family: 'Inter', sans-serif;
+    color: var(--z-dark);
+    overflow-x: hidden;
+  }
+
+  .z-gradient-text {
+    background: linear-gradient(90deg, var(--z-pink), var(--z-purple), #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .z-marquee-container {
+    background: #000;
+    padding: 12px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 50;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .z-marquee-content {
+    display: flex;
+    white-space: nowrap;
+    animation: z-scroll 30s linear infinite;
+  }
+
+  @keyframes z-scroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .z-btn-main {
+    background: var(--z-dark);
+    color: #fff;
+    padding: 20px 48px;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  .z-btn-main:hover {
+    background: var(--z-pink);
+    transform: translateY(-4px) scale(1.02);
+  }
+
+  .z-hero-visual {
+    border-radius: 48px;
+    border: 4px solid #fff;
+    box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+  }
+
+  .z-floating-gmv {
+    background: var(--z-acid);
+    color: #000;
+    padding: 16px 32px;
+    border-radius: 9999px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border: 4px solid #000;
+    box-shadow: 8px 8px 0px 0px #000;
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    transform: rotate(12deg);
+    animation: z-bounce 3s infinite;
+  }
+
+  @keyframes z-bounce {
+    0%, 100% { transform: translateY(0) rotate(12deg); }
+    50% { transform: translateY(-15px) rotate(15deg); }
+  }
+{%- endstyle -%}
+
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+<div class="z-section-{{ section.id }} antialiased">
+  
+  <!-- Marquee Ticker -->
+  <div class="z-marquee-container">
+    <div class="z-marquee-content">
+      {% for i in (1..10) %}
+        <div class="flex items-center gap-8 px-4">
+          <span class="text-[var(--z-acid)] font-black uppercase tracking-widest text-sm">LIVE COMMERCE</span>
+          <span class="text-white/20">/</span>
+          <span class="text-white font-black uppercase tracking-widest text-sm">CREATOR ECONOMY</span>
+          <span class="text-white/20">/</span>
+          <span class="text-[var(--z-pink)] font-black uppercase tracking-widest text-sm">ZENCIAL CREATORS</span>
+          <span class="text-white/20">/</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-16 pb-24 px-6 md:px-12 flex flex-col items-center text-center">
+    <!-- Background Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-purple-100/50 rounded-full blur-[100px] -z-10"></div>
+    
+    <!-- Top Badge -->
+    <div class="mb-10 inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white border border-gray-100 shadow-xl">
+      <span class="w-2.5 h-2.5 rounded-full bg-[var(--z-pink)] animate-pulse"></span>
+      <span class="text-[10px] md:text-xs font-black tracking-widest uppercase">{{ section.settings.badge_text }}</span>
+    </div>
+
+    <!-- Main Headings -->
+    <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-8 max-w-5xl">
+      {{ section.settings.hero_title_1 }}<br/>
+      <span class="z-gradient-text">{{ section.settings.hero_title_2 }}</span>
+    </h1>
+
+    <p class="text-lg md:text-2xl text-gray-500 max-w-2xl mx-auto font-medium mb-12">
+      {{ section.settings.hero_subtitle }}
+    </p>
+
+    <!-- Call to Action -->
+    <div class="mb-20">
+      <a href="{{ section.settings.cta_link }}" class="z-btn-main">
+        {{ section.settings.cta_text }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Image Display -->
+    <div class="w-full max-w-5xl relative">
+      {% if section.settings.hero_image != blank %}
+        <img src="{{ section.settings.hero_image | image_url: width: 1400 }}" class="z-hero-visual w-full aspect-video object-cover" alt="Zencial Creator">
+      {% else %}
+        <div class="z-hero-visual w-full aspect-video bg-gray-200 flex items-center justify-center text-gray-400 font-bold uppercase">
+          Adicione a imagem no Editor do Tema
+        </div>
+      {% endif %}
+      
+      <div class="z-floating-gmv">
+        GMV 🚀
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-24 bg-white rounded-t-[3rem] md:rounded-t-[5rem]">
+    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="p-10 bg-gray-50 rounded-[3rem] border-2 border-transparent hover:border-[var(--z-purple)] transition-all">
+        <h3 class="text-2xl font-black mb-4 uppercase">Afiliada Starter</h3>
+        <p class="text-gray-500 font-bold mb-6">Comissão base de 20% e acesso total ao banco de ativos digitais.</p>
+        <div class="text-[var(--z-purple)] font-black text-xs uppercase tracking-widest">KIT WELCOME ZENCIAL</div>
+      </div>
+      <div class="p-10 bg-[var(--z-purple)] text-white rounded-[3rem] shadow-2xl shadow-purple-200 transform md:-translate-y-4">
+        <h3 class="text-2xl font-black mb-4 uppercase">High Performer</h3>
+        <p class="text-purple-100 font-bold mb-6">Receba lançamentos em casa e bônus extras por faturamento.</p>
+        <div class="text-[var(--z-acid)] font-black text-xs uppercase tracking-widest">IPHONE 16 PRO MAX</div>
+      </div>
+      <div class="p-10 bg-black text-white rounded-[3rem]">
+        <h3 class="text-2xl font-black mb-4 uppercase">Elite Legend</h3>
+        <p class="text-gray-400 font-bold mb-6">O topo da pirâmide. Viagens internacionais e lucros da marca.</p>
+        <div class="text-[var(--z-pink)] font-black text-xs uppercase tracking-widest">MALDIVAS EXPERIENCE</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+{% schema %}
+{
+  "name": "Zencial Landing Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Estética"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Cor de Fundo",
+      "default": "#f5f3ff"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Cor de Destaque",
+      "default": "#ec4899"
+    },
+    {
+      "type": "header",
+      "content": "Conteúdo Hero"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto do Selo Topo",
+      "default": "VAGAS ABERTAS • 2025"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_1",
+      "label": "Título Linha 1",
+      "default": "CREATORS"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_2",
+      "label": "Título Linha 2",
+      "default": "ZENCIAL"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Subtítulo",
+      "default": "Sua carreira profissional no TikTok Shop começa aqui. Venda produtos reais, ganhe comissões reais."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagem Principal"
+    },
+    {
+      "type": "header",
+      "content": "Botão de Ação"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto do Botão",
+      "default": "QUERO ME INSCREVER"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link do Botão"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zencial Landing Page",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

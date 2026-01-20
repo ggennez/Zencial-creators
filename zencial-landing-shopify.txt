@@ -1,0 +1,260 @@
+{%- style -%}
+  :root {
+    --zencial-pink: #ec4899;
+    --zencial-purple: #7c3aed;
+    --zencial-acid: #bef264;
+    --zencial-dark: #1c1917;
+  }
+
+  .zencial-landing-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    font-family: 'Inter', sans-serif;
+    color: var(--zencial-dark);
+    overflow-x: hidden;
+  }
+
+  .zencial-gradient-text {
+    background: linear-gradient(90deg, var(--zencial-pink), var(--zencial-purple), #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .zencial-btn-shimmer {
+    background: linear-gradient(110deg, var(--zencial-dark), 45%, #333, 55%, var(--zencial-dark));
+    background-size: 200% 100%;
+    animation: zencial-shimmer 2s linear infinite;
+  }
+
+  @keyframes zencial-shimmer {
+    to { background-position: -200% 0; }
+  }
+
+  .zencial-marquee {
+    display: flex;
+    animation: zencial-marquee-scroll 30s linear infinite;
+  }
+
+  @keyframes zencial-marquee-scroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .zencial-hero-img {
+    border-radius: 3rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border: 4px solid #fff;
+    transition: transform 0.5s ease;
+  }
+
+  .zencial-hero-img:hover {
+    transform: scale(1.01);
+  }
+{%- endstyle -%}
+
+<!-- Tailwind CDN for Layout -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+<div class="zencial-landing-section-{{ section.id }} antialiased">
+  
+  <!-- Top Ticker / Marquee -->
+  <div class="bg-black py-4 border-b border-white/10 relative z-50 overflow-hidden">
+    <div class="zencial-marquee whitespace-nowrap flex gap-12 items-center">
+      {% for i in (1..8) %}
+        <span class="font-black uppercase tracking-widest text-xs md:text-sm text-[var(--zencial-acid)]">LIVE COMMERCE</span>
+        <span class="text-white/20">/</span>
+        <span class="font-black uppercase tracking-widest text-xs md:text-sm text-white">CREATOR ECONOMY</span>
+        <span class="text-white/20">/</span>
+        <span class="font-black uppercase tracking-widest text-xs md:text-sm text-[var(--zencial-pink)]">ZENCIAL CREATORS</span>
+        <span class="text-white/20">/</span>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative pt-20 pb-24 px-6 md:px-12 flex flex-col items-center text-center">
+    <!-- Decorative Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[500px] bg-purple-100/40 rounded-full blur-[120px] -z-10"></div>
+    
+    <!-- Badge -->
+    <div class="mb-10 inline-flex items-center gap-3 px-6 py-2.5 rounded-full bg-white border border-gray-100 shadow-2xl transform hover:scale-105 transition-transform cursor-default">
+      <span class="flex h-3 w-3 relative">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
+      </span>
+      <span class="text-[10px] md:text-xs font-black tracking-[0.2em] uppercase text-gray-800">{{ section.settings.badge_text }}</span>
+    </div>
+
+    <!-- Titles -->
+    <h1 class="text-5xl md:text-[7rem] font-black tracking-tighter leading-[0.9] mb-8 max-w-5xl">
+      {{ section.settings.hero_title_1 }}<br/>
+      <span class="zencial-gradient-text">{{ section.settings.hero_title_2 }}</span>
+    </h1>
+
+    <p class="text-lg md:text-2xl text-gray-500 max-w-2xl mx-auto font-medium mb-12 leading-tight">
+      {{ section.settings.hero_subtitle }}
+    </p>
+
+    <!-- Main CTA Button -->
+    <div class="flex flex-col sm:flex-row gap-6 w-full max-w-md justify-center mb-20">
+      <a href="{{ section.settings.cta_link }}" class="px-12 py-6 bg-[var(--zencial-dark)] text-white rounded-[2rem] font-black text-xl hover:bg-[var(--zencial-pink)] hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-4 group">
+        {{ section.settings.cta_text }}
+        <svg class="group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Hero Image Area -->
+    <div class="w-full max-w-5xl relative">
+      {% if section.settings.hero_image != blank %}
+        <img src="{{ section.settings.hero_image | image_url: width: 1400 }}" class="zencial-hero-img w-full object-cover aspect-[16/9] md:aspect-video" alt="{{ section.settings.hero_title_1 }}">
+      {% else %}
+        <div class="zencial-hero-img w-full aspect-[16/9] md:aspect-video bg-gray-100 flex items-center justify-center text-gray-400 font-black">
+          UPLOAD HERO IMAGE IN THEME EDITOR
+        </div>
+      {% endif %}
+      
+      <!-- Floating Label -->
+      <div class="absolute -bottom-8 -right-4 md:bottom-12 md:-right-12 bg-[var(--zencial-acid)] text-black px-10 py-5 rounded-full font-black text-2xl md:text-3xl border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] rotate-6 animate-bounce hover:rotate-0 transition-transform cursor-pointer">
+        GMV 🚀
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap / Levels -->
+  <section class="py-28 bg-white rounded-t-[4rem] md:rounded-t-[6rem] shadow-[0_-20px_40px_rgba(0,0,0,0.03)]">
+    <div class="max-w-7xl mx-auto px-8">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-7xl font-black tracking-tighter uppercase leading-none">Plano de <span class="text-[var(--zencial-purple)]">Ascensão</span></h2>
+        <p class="text-gray-400 font-bold mt-4 text-lg">Quanto mais você vende, mais benefícios você ganha.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Level Card 1 -->
+        <div class="group p-10 bg-gray-50 rounded-[3rem] border-2 border-transparent hover:border-[var(--zencial-purple)] transition-all hover:shadow-2xl hover:-translate-y-2">
+          <span class="inline-block px-4 py-1 bg-white rounded-lg text-[10px] font-black uppercase tracking-widest text-[var(--zencial-purple)] mb-6 shadow-sm">Nível Starter</span>
+          <h3 class="text-3xl font-black mb-4 uppercase">AFILIADA INICIANTE</h3>
+          <p class="text-gray-500 font-medium leading-relaxed mb-8">Comece com ativos digitais prontos para postar e ganhe sua primeira comissão de 20%.</p>
+          <div class="flex items-center gap-3 text-[var(--zencial-purple)] font-black text-sm">
+            <div class="p-2 bg-purple-100 rounded-full">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            KIT WELCOME ZENCIAL
+          </div>
+        </div>
+
+        <!-- Level Card 2 -->
+        <div class="group p-10 bg-[var(--zencial-purple)] rounded-[3rem] border-2 border-transparent transition-all shadow-xl hover:shadow-[var(--zencial-purple)]/30 hover:-translate-y-2">
+          <span class="inline-block px-4 py-1 bg-white/10 rounded-lg text-[10px] font-black uppercase tracking-widest text-white mb-6">Nível Creator</span>
+          <h3 class="text-3xl font-black mb-4 uppercase text-white">HIGH PERFORMER</h3>
+          <p class="text-purple-100 font-medium leading-relaxed mb-8">Envio recorrente de produtos e convites para eventos exclusivos de lançamentos.</p>
+          <div class="flex items-center gap-3 text-white font-black text-sm">
+            <div class="p-2 bg-white/20 rounded-full">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            IPHONE + RING LIGHT PRO
+          </div>
+        </div>
+
+        <!-- Level Card 3 -->
+        <div class="group p-10 bg-black rounded-[3rem] border-2 border-transparent transition-all hover:shadow-black/50 hover:-translate-y-2">
+          <span class="inline-block px-4 py-1 bg-[var(--zencial-acid)] rounded-lg text-[10px] font-black uppercase tracking-widest text-black mb-6">Nível Legend</span>
+          <h3 class="text-3xl font-black mb-4 uppercase text-white">EMBAIXADORA</h3>
+          <p class="text-gray-400 font-medium leading-relaxed mb-8">Viagens para o exterior, participação nos lucros da marca e linha de produtos própria.</p>
+          <div class="flex items-center gap-3 text-[var(--zencial-acid)] font-black text-sm">
+            <div class="p-2 bg-[var(--zencial-acid)]/10 rounded-full">
+               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+            </div>
+            MALDIVAS EXPERIENCE
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bottom CTA -->
+  <section class="py-24 bg-[var(--zencial-dark)] text-white text-center relative overflow-hidden">
+    <!-- Glow -->
+    <div class="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-pink-900/20 to-transparent"></div>
+    
+    <div class="max-w-4xl mx-auto px-8 relative z-10">
+      <h2 class="text-5xl md:text-8xl font-black tracking-tighter mb-10 leading-tight">SUA NOVA <span class="text-[var(--zencial-pink)]">CARREIRA</span> COMEÇA AGORA.</h2>
+      <a href="{{ section.settings.cta_link }}" class="zencial-btn-shimmer inline-flex px-14 py-7 rounded-full font-black text-2xl hover:scale-110 transition-transform">
+        INSCREVER-SE NA ZENCIAL
+      </a>
+      <p class="mt-10 text-gray-500 font-bold uppercase tracking-[0.3em] text-[10px]">Vagas Limitadas • Safra 2025</p>
+    </div>
+  </section>
+
+</div>
+
+{% schema %}
+{
+  "name": "Zencial Landing",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Estilo da Seção"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Cor de Fundo",
+      "default": "#f5f3ff"
+    },
+    {
+      "type": "header",
+      "content": "Conteúdo Hero"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Texto do Selo",
+      "default": "VAGAS ABERTAS • 2025"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_1",
+      "label": "Título Principal - Linha 1",
+      "default": "CREATORS"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_2",
+      "label": "Título Principal - Linha 2",
+      "default": "ZENCIAL"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Subtítulo",
+      "default": "Sua carreira profissional no TikTok Shop começa aqui. Venda produtos reais, ganhe comissões reais e escale seu GMV."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagem Principal (Desktop)"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action (Botão)"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto do Botão",
+      "default": "QUERO ME INSCREVER"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link do Botão"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zencial Landing Page",
+      "category": "Conversão"
+    }
+  ]
+}
+{% endschema %}

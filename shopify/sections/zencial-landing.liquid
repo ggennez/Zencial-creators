@@ -1,0 +1,243 @@
+{%- style -%}
+  .zencial-{{ section.id }} {
+    --z-pink: {{ section.settings.color_accent | default: '#ec4899' }};
+    --z-purple: #7c3aed;
+    --z-acid: #bef264;
+    --z-dark: #1c1917;
+    background-color: {{ section.settings.bg_color }};
+    font-family: 'Inter', sans-serif;
+    color: var(--z-dark);
+    overflow-x: hidden;
+  }
+
+  .z-gradient-text {
+    background: linear-gradient(90deg, var(--z-pink), var(--z-purple), #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .z-marquee-wrapper {
+    background: #000;
+    padding: 12px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 50;
+  }
+
+  .z-marquee-anim {
+    display: flex;
+    white-space: nowrap;
+    animation: z-marquee-scroll 30s linear infinite;
+  }
+
+  @keyframes z-marquee-scroll {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .z-btn-primary {
+    background: var(--z-dark);
+    color: #fff;
+    padding: 18px 40px;
+    border-radius: 16px;
+    font-weight: 900;
+    font-size: 1.125rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .z-btn-primary:hover {
+    background: var(--z-pink);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+  }
+
+  .z-hero-card {
+    border-radius: 40px;
+    border: 4px solid #fff;
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.15);
+  }
+
+  .z-badge-gmv {
+    background: var(--z-acid);
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 99px;
+    font-weight: 900;
+    border: 3px solid #000;
+    box-shadow: 6px 6px 0px 0px #000;
+    position: absolute;
+    bottom: -15px;
+    right: -10px;
+    transform: rotate(8deg);
+  }
+{%- endstyle -%}
+
+<!-- External Dependencies -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+
+<div class="zencial-{{ section.id }} antialiased">
+  
+  <!-- Announcement Bar -->
+  <div class="z-marquee-wrapper">
+    <div class="z-marquee-anim">
+      {% for i in (1..12) %}
+        <div class="flex items-center gap-10 px-4">
+          <span class="text-[var(--z-acid)] font-black uppercase tracking-widest text-xs">LIVE COMMERCE</span>
+          <span class="text-white font-black uppercase tracking-widest text-xs">CREATOR ECONOMY</span>
+          <span class="text-[var(--z-pink)] font-black uppercase tracking-widest text-xs">ZENCIAL 2025</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- Hero Content -->
+  <section class="relative pt-16 pb-24 px-6 md:px-12 flex flex-col items-center text-center">
+    <!-- Visual Glow -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-[400px] bg-purple-100/30 rounded-full blur-[100px] -z-10"></div>
+    
+    <!-- Status Badge -->
+    <div class="mb-10 inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white border border-gray-100 shadow-lg">
+      <span class="w-2.5 h-2.5 rounded-full bg-[var(--z-pink)] animate-pulse"></span>
+      <span class="text-[10px] md:text-xs font-black tracking-widest uppercase text-gray-500">{{ section.settings.badge_text }}</span>
+    </div>
+
+    <!-- Main Headings -->
+    <h1 class="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-8 max-w-5xl">
+      {{ section.settings.hero_title_1 }}<br/>
+      <span class="z-gradient-text">{{ section.settings.hero_title_2 }}</span>
+    </h1>
+
+    <p class="text-lg md:text-2xl text-gray-500 max-w-2xl mx-auto font-medium mb-12">
+      {{ section.settings.hero_subtitle }}
+    </p>
+
+    <!-- Main Button -->
+    <div class="mb-20">
+      <a href="{{ section.settings.cta_link }}" class="z-btn-primary">
+        {{ section.settings.cta_text }}
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Hero Image -->
+    <div class="w-full max-w-5xl relative">
+      {% if section.settings.hero_image != blank %}
+        <img src="{{ section.settings.hero_image | image_url: width: 1400 }}" class="z-hero-card w-full aspect-video object-cover" alt="{{ section.settings.hero_title_1 }}">
+      {% else %}
+        <div class="z-hero-card w-full aspect-video bg-gray-100 flex items-center justify-center text-gray-300 font-bold uppercase">
+          Configurar imagem no editor
+        </div>
+      {% endif %}
+      
+      <div class="z-badge-gmv animate-bounce">
+        GMV 🚀
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Grid -->
+  <section class="py-24 bg-white rounded-t-[3rem] md:rounded-t-[5rem]">
+    <div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="p-10 bg-gray-50 rounded-[2.5rem] border-2 border-transparent hover:border-[var(--z-purple)] transition-all">
+        <h3 class="text-2xl font-black mb-3 uppercase">Starter</h3>
+        <p class="text-gray-500 font-bold mb-6">20% de comissão base + ativos digitais prontos para viralizar.</p>
+        <div class="text-[var(--z-purple)] font-black text-xs uppercase tracking-widest">KIT BOAS-VINDAS</div>
+      </div>
+      <div class="p-10 bg-[var(--z-purple)] text-white rounded-[2.5rem] shadow-2xl transform md:-translate-y-6">
+        <h3 class="text-2xl font-black mb-3 uppercase">Growth</h3>
+        <p class="text-purple-100 font-bold mb-6">Receba produtos físicos para unboxing e bônus por performance.</p>
+        <div class="text-[var(--z-acid)] font-black text-xs uppercase tracking-widest">IPHONE 16 PRO</div>
+      </div>
+      <div class="p-10 bg-black text-white rounded-[2.5rem]">
+        <h3 class="text-2xl font-black mb-3 uppercase">Legend</h3>
+        <p class="text-gray-400 font-bold mb-6">Viagens anuais, participação em eventos e lucros da marca.</p>
+        <div class="text-[var(--z-pink)] font-black text-xs uppercase tracking-widest">MALDIVAS EXPERIENCE</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% schema %}
+{
+  "name": "Zencial Landing",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Aparência"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Cor de Fundo",
+      "default": "#f5f3ff"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Cor de Destaque (Rosa)",
+      "default": "#ec4899"
+    },
+    {
+      "type": "header",
+      "content": "Conteúdo Principal"
+    },
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Selo de Status",
+      "default": "VAGAS ABERTAS • 2025"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_1",
+      "label": "Título Principal (Cima)",
+      "default": "CREATORS"
+    },
+    {
+      "type": "text",
+      "id": "hero_title_2",
+      "label": "Título Principal (Baixo)",
+      "default": "ZENCIAL"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Subtítulo",
+      "default": "Sua carreira profissional no TikTok Shop começa aqui. Venda produtos reais e ganhe comissões reais."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagem de Capa"
+    },
+    {
+      "type": "header",
+      "content": "Botão de Conversão"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Texto do Botão",
+      "default": "QUERO ME INSCREVER"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Link do Botão"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zencial Landing",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

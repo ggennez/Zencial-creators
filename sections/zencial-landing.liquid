@@ -1,0 +1,499 @@
+
+{% comment %}
+  ZENCIAL — LANDING DE CAPTAÇÃO DE INFLUENCERS
+  Creators Zencial — Vitrine do Projeto (Versão Final Otimizada)
+{% endcomment %}
+
+{%- style -%}
+  :root {
+    --z-pink: {{ section.settings.color_accent | default: '#ec4899' }};
+    --z-purple: #7c3aed;
+    --z-acid: #bef264;
+    --z-dark: #1c1917;
+    --z-lilac: #f5f3ff;
+  }
+
+  .z-landing-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    font-family: 'Inter', sans-serif;
+    color: var(--z-dark);
+    line-height: 1.5;
+  }
+
+  /* Marquee Animation */
+  @keyframes z-marquee { 0% { transform: translateX(0%); } 100% { transform: translateX(-50%); } }
+  .z-marquee-anim { display: flex; white-space: nowrap; animation: z-marquee 30s linear infinite; }
+
+  /* Plaque Sticky Stack - Fix */
+  .z-plaque-stack-container {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  .z-plaque-item {
+    position: sticky;
+    top: 12vh;
+    margin-bottom: 60vh;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+  }
+  .z-plaque-item:last-child { margin-bottom: 15vh; }
+
+  /* Glassmorphism */
+  .z-glass {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* FAQ Accordion */
+  .z-faq-content { max-height: 0; opacity: 0; overflow: hidden; transition: all 0.5s ease; }
+  .z-faq-item.active .z-faq-content { max-height: 800px; opacity: 1; padding-bottom: 2rem; }
+
+  .z-gradient-text {
+    background: linear-gradient(90deg, var(--z-pink), var(--z-purple), #4f46e5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Animations */
+  @keyframes z-float { 0%, 100% { transform: translateY(0) rotate(6deg); } 50% { transform: translateY(-15px) rotate(8deg); } }
+  .z-animate-float { animation: z-float 4s ease-in-out infinite; }
+  
+  @keyframes z-shimmer { from { background-position: 0 0; } to { background-position: -200% 0; } }
+  .z-btn-shimmer {
+    background: linear-gradient(110deg, var(--z-dark), 45%, #333, 55%, var(--z-dark));
+    background-size: 200% 100%;
+    animation: z-shimmer 2s linear infinite;
+  }
+
+  .hidden-state { display: none !important; }
+
+  /* Custom Scrollbar */
+  .z-landing-{{ section.id }}::-webkit-scrollbar { width: 6px; }
+  .z-landing-{{ section.id }}::-webkit-scrollbar-thumb { background: var(--z-pink); border-radius: 10px; }
+{%- endstyle -%}
+
+<!-- Tailwind Support -->
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+<div class="z-landing-{{ section.id }} antialiased selection:bg-[var(--z-acid)] selection:text-black overflow-x-hidden">
+  
+  <!-- 1. TICKER SUPERIOR -->
+  <div class="fixed top-0 left-0 w-full z-[100] bg-[#1c1917] border-b border-white/5 overflow-hidden">
+    <div class="z-marquee-anim py-3">
+      {% for i in (1..10) %}
+        <div class="flex items-center gap-10 px-4">
+          <span class="font-black uppercase tracking-widest text-[10px] text-[var(--z-acid)]">LIVE SHOPPING</span>
+          <span class="text-white/20 font-light">/</span>
+          <span class="font-black uppercase tracking-widest text-[10px] text-white">CREATOR ECONOMY</span>
+          <span class="text-white/20 font-light">/</span>
+          <span class="font-black uppercase tracking-widest text-[10px] text-[var(--z-pink)]">ZENCIAL 2025</span>
+          <span class="text-white/20 font-light">/</span>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- 2. HERO SECTION -->
+  <section class="relative pt-32 md:pt-44 pb-24 px-4 md:px-6 flex flex-col items-center text-center overflow-hidden">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[500px] bg-purple-100/30 rounded-full blur-[120px] -z-10"></div>
+    
+    <div class="mb-8 inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white border border-gray-100 shadow-xl">
+      <span class="relative flex h-3 w-3">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--z-pink)] opacity-75"></span>
+        <span class="relative inline-flex rounded-full h-3 w-3 bg-[var(--z-pink)]"></span>
+      </span>
+      <span class="text-[10px] font-black tracking-widest uppercase text-gray-800">SAFRA 2025 • VAGAS ABERTAS</span>
+    </div>
+
+    <h1 class="text-6xl md:text-[9.5rem] font-black tracking-tighter leading-[0.85] mb-8">
+      LIVE <br class="md:hidden" />
+      <span class="z-gradient-text">SHOP</span>
+    </h1>
+
+    <p class="text-lg md:text-3xl font-bold text-gray-600 max-w-2xl mx-auto leading-tight mb-14">
+      Sua carreira profissional no <span class="bg-[var(--z-acid)] text-black px-2 transform -skew-x-3 shadow-sm inline-block">TikTok Shop</span> começa aqui.<br class="hidden md:block"/>
+      Venda produtos reais, ganhe comissões reais.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-5 mb-24 w-full max-w-md justify-center px-4">
+      <a href="#verify" class="px-10 py-5 bg-[var(--z-dark)] text-white rounded-2xl font-black text-xl hover:bg-[var(--z-pink)] hover:scale-105 transition-all shadow-2xl flex items-center justify-center gap-4">
+        Verificar Perfil
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </a>
+    </div>
+
+    <div class="w-full max-w-6xl relative px-2">
+      <div class="rounded-[3rem] overflow-hidden border-4 border-white shadow-2xl relative">
+        {% if section.settings.hero_image != blank %}
+          <img src="{{ section.settings.hero_image | image_url: width: 1600 }}" class="w-full aspect-video object-cover" alt="Setup">
+        {% else %}
+          <img src="https://images.unsplash.com/photo-1585670210693-e7fdd16b142e?q=80&w=1600&auto=format&fit=crop" class="w-full aspect-video object-cover" alt="Setup">
+        {% endif %}
+        <div class="absolute top-6 left-6 bg-red-600 text-white px-3 py-1 rounded-md font-black text-[10px] tracking-widest animate-pulse border border-white/50">● LIVE</div>
+      </div>
+      
+      <!-- STICKERS HERO -->
+      <div class="absolute -bottom-10 -right-2 md:-bottom-12 md:-right-8 bg-[var(--z-acid)] text-black px-8 py-4 rounded-full font-black text-2xl md:text-4xl border-4 border-black shadow-[10px_10px_0px_0px_rgba(0,0,0,1)] z-animate-float z-40">GMV 🚀</div>
+      
+      <div class="absolute top-10 left-10 inline-flex items-center gap-3 bg-neutral-900/90 backdrop-blur-xl px-5 py-2 rounded-full border border-white/20 shadow-xl hidden md:flex">
+          <div class="w-8 h-8 rounded-full overflow-hidden border-2 border-[var(--z-pink)]">
+             <img src="https://ui-avatars.com/api/?name=Z&background=ec4899&color=fff" alt="Avatar">
+          </div>
+          <p class="text-white text-sm font-black tracking-wide">@zencial.derm</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. ECOSSISTEMA BENTO BOX -->
+  <section class="py-24 bg-white rounded-t-[4rem] relative z-20">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="text-center mb-16">
+        <div class="inline-block bg-[var(--z-acid)] text-black px-4 py-1.5 rounded-lg font-black text-[10px] uppercase tracking-widest mb-4">Zencial Ecosystem</div>
+        <h2 class="text-4xl md:text-8xl font-black tracking-tighter leading-[0.9] uppercase">A FÁBRICA DE <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-[var(--z-pink)] to-purple-600">INFLUENCIADORAS</span></h2>
+        <p class="text-gray-500 font-bold mt-4 text-xl md:text-2xl">Uma suíte completa de ferramentas desenhada para acelerar sua carreira.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Zencial Academy -->
+        <div class="md:col-span-2 bg-purple-600 rounded-[3.5rem] p-10 relative overflow-hidden group min-h-[350px] flex flex-col justify-between border-2 border-transparent hover:border-purple-400 transition-all">
+           <div class="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+           <div class="absolute top-8 right-8 bg-white text-purple-600 px-5 py-2 rounded-xl font-black rotate-3 shadow-lg border-2 border-purple-100">100% GRÁTIS</div>
+           <div class="relative z-10">
+              <h3 class="text-4xl md:text-6xl font-black text-white mb-4">Zencial Academy</h3>
+              <p class="text-purple-100 text-lg md:text-2xl font-medium max-w-lg">Aprenda a vender de verdade. Do zero ao primeiro milhão em comissões.</p>
+           </div>
+           <button class="relative z-10 self-start mt-8 px-8 py-4 bg-[var(--z-acid)] text-black font-black rounded-full text-sm hover:bg-white transition-all shadow-xl">VER CURRICULUM</button>
+        </div>
+        <!-- Community -->
+        <div class="bg-gray-50 border-2 border-gray-100 rounded-[3.5rem] p-10 flex flex-col justify-between min-h-[350px] group transition-all hover:border-[var(--z-pink)]">
+           <div>
+             <h3 class="text-3xl font-black text-zencial-dark mb-2">Comunidade VIP</h3>
+             <p class="text-gray-500 font-bold">Networking com quem fatura alto.</p>
+           </div>
+           <div class="space-y-3 mt-8">
+              <div class="bg-white p-4 rounded-2xl rounded-tl-none shadow-md border border-gray-100 text-sm font-bold flex items-center gap-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
+                "Bati minha meta de GMV hoje! 🚀"
+              </div>
+              <div class="bg-[var(--z-pink)] p-4 rounded-2xl rounded-tr-none shadow-md border border-pink-400 text-white text-sm font-bold ml-auto text-right">"Parabéns! O prêmio já foi liberado."</div>
+           </div>
+        </div>
+        <!-- Kit Creator -->
+        <div class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-[3rem] p-10 flex flex-col items-center text-center min-h-[250px] justify-center border border-white group">
+           <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center text-[var(--z-pink)] mb-4 shadow-xl group-hover:scale-110 transition-transform rotate-3">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+           </div>
+           <h3 class="text-2xl font-black text-zencial-dark uppercase">Kit Creator</h3>
+           <p class="text-gray-600 font-bold text-sm">Assets visuais para suas lives</p>
+        </div>
+        <!-- Prizes -->
+        <div class="md:col-span-2 bg-neutral-900 text-white rounded-[3rem] p-10 relative overflow-hidden flex flex-col justify-center min-h-[250px] group border border-neutral-800">
+           <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=1000&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
+           <div class="relative z-10">
+              <div class="bg-[var(--z-acid)] text-black px-4 py-1 rounded-lg text-xs font-black uppercase tracking-widest inline-block mb-4">PREMIUM</div>
+              <h3 class="text-3xl md:text-5xl font-black leading-none text-white">Prêmios Físicos</h3>
+              <p class="text-gray-400 mt-2 font-bold text-lg md:text-xl">iPhone, Viagens e Equipamentos Profissionais.</p>
+           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. ANALISADOR DE PERFIL -->
+  <section id="verify" class="py-24 bg-[var(--z-dark)] text-white relative">
+    <div class="container mx-auto px-6 text-center">
+      <div class="mb-14">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-400 font-black text-[10px] tracking-widest uppercase mb-6">Alta Concorrência • Vagas Limitadas</div>
+        <h2 class="text-4xl md:text-7xl font-black tracking-tighter mb-4 uppercase leading-none">ANÁLISE DE <span class="text-[var(--z-pink)]">POTENCIAL</span></h2>
+        <p class="text-gray-400 font-bold max-w-xl mx-auto text-lg">Nosso protocolo aprova apenas perfis com compatibilidade viral.</p>
+      </div>
+
+      <div id="v-box" class="bg-white text-black p-8 md:p-14 rounded-[4rem] shadow-2xl max-w-2xl mx-auto border-4 border-white">
+        <div id="v-idle">
+           <div class="text-center mb-8">
+             <h3 class="text-3xl font-black text-zencial-dark mb-2">Verificar Elegibilidade</h3>
+             <p class="text-gray-500 font-bold uppercase text-[10px] tracking-widest">Insira o @ do seu perfil no TikTok</p>
+           </div>
+           <div class="relative max-w-xs mx-auto mb-8">
+             <span class="absolute left-5 top-1/2 -translate-y-1/2 font-black text-xl text-gray-300">@</span>
+             <input type="text" id="v-input" placeholder="seu.usuario" class="w-full pl-12 pr-6 py-5 bg-gray-50 border-2 border-gray-100 rounded-2xl text-xl font-black focus:border-[var(--z-purple)] focus:outline-none text-center">
+           </div>
+           <button id="v-btn" class="w-full py-5 bg-[var(--z-dark)] text-white rounded-2xl font-black text-xl hover:bg-[var(--z-pink)] transition-all shadow-xl">RODAR DIAGNÓSTICO</button>
+        </div>
+        <div id="v-loading" class="hidden-state py-12 flex flex-col items-center">
+           <div class="w-16 h-16 border-4 border-gray-100 border-t-[var(--z-purple)] rounded-full animate-spin mb-6"></div>
+           <p class="font-black text-gray-400 animate-pulse uppercase tracking-widest text-xs">Analisando métricas virais...</p>
+        </div>
+        <div id="v-success" class="hidden-state text-left animate-slide-up">
+           <div class="flex items-center gap-6 mb-8">
+             <img id="v-avatar" src="" class="w-24 h-24 rounded-full border-4 border-[var(--z-acid)] shadow-xl">
+             <div>
+               <h3 id="v-name" class="text-2xl font-black leading-none mb-1">Creator</h3>
+               <p id="v-user" class="text-gray-400 font-bold uppercase text-xs">@user</p>
+             </div>
+           </div>
+           <div class="bg-green-50 p-6 rounded-2xl border-2 border-green-100 mb-8">
+             <p class="text-green-700 font-bold text-sm">COMPATÍVEL! Sua conta apresenta métricas compatíveis para o programa Zencial 2025.</p>
+           </div>
+           <a href="{{ section.settings.cta_url | default: '#' }}" class="w-full py-5 bg-green-600 text-white rounded-2xl font-black text-xl text-center block shadow-xl hover:bg-green-700">GARANTIR MINHA VAGA</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. ROADMAP 8 NÍVEIS -->
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="text-[var(--z-pink)] font-black tracking-[0.4em] uppercase text-xs mb-4">ROADMAP 2025</p>
+        <h2 class="text-4xl md:text-[6.5rem] font-black tracking-tighter uppercase leading-[0.9]">Plano de <br/><span class="text-[var(--z-purple)]">Ascensão</span></h2>
+        
+        <div class="mt-12 p-8 bg-[var(--z-dark)] text-white rounded-[3.5rem] border-4 border-[var(--z-acid)] max-w-2xl mx-auto shadow-2xl relative overflow-hidden group">
+           <div class="relative z-10">
+             <div class="inline-block bg-[var(--z-acid)] text-black px-4 py-1 rounded-lg font-black text-[10px] uppercase tracking-widest mb-4">A REGRA É CLARA</div>
+             <p class="font-black text-4xl mb-4 leading-none">GMV é Rei.</p>
+             <p class="text-gray-400 font-bold text-lg leading-relaxed">Volume Bruto de Mercadoria. Quanto mais você vende, mais alto você sobe.</p>
+           </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {% for block in section.blocks %}
+          {% if block.type == 'level' %}
+            <div class="p-8 bg-gray-50 rounded-[3.5rem] border-2 border-transparent hover:border-[var(--z-purple)] transition-all flex flex-col group shadow-sm hover:shadow-xl" {{ block.shopify_attributes }}>
+              <div class="relative w-full h-52 rounded-[2.5rem] overflow-hidden mb-8 border-2 border-white shadow-md">
+                {% if block.settings.image != blank %}
+                  <img src="{{ block.settings.image | image_url: width: 800 }}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" alt="{{ block.settings.title }}">
+                {% else %}
+                  {% case forloop.index %}
+                    {% when 1 %}<img src="https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800" class="w-full h-full object-cover" alt="Starter">
+                    {% when 2 %}<img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800" class="w-full h-full object-cover" alt="Growth">
+                    {% when 3 %}<img src="https://images.unsplash.com/photo-1571781565023-40f8d4752a39?q=80&w=800" class="w-full h-full object-cover" alt="High">
+                    {% when 4 %}<img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800" class="w-full h-full object-cover" alt="Elite">
+                    {% when 5 %}<img src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=800" class="w-full h-full object-cover" alt="Pro">
+                    {% when 6 %}<img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800" class="w-full h-full object-cover" alt="Emb">
+                    {% when 7 %}<img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800" class="w-full h-full object-cover" alt="Elite Z">
+                    {% when 8 %}<img src="https://images.unsplash.com/photo-1583209814683-c023dd293cc6?q=80&w=800" class="w-full h-full object-cover" alt="Extra">
+                  {% endcase %}
+                {% endif %}
+                <div class="absolute top-5 left-5 bg-black/50 backdrop-blur-md px-3 py-1 rounded-xl text-white font-black text-[10px]">LVL 0{{ forloop.index }}</div>
+              </div>
+              <h3 class="text-2xl font-black mb-1 uppercase text-zencial-dark">{{ block.settings.title }}</h3>
+              <p class="text-gray-400 font-bold text-xs mb-8">{{ block.settings.gmv_text }}</p>
+              <div class="mb-8">
+                <div class="flex justify-between text-[10px] font-black mb-2 text-gray-400 uppercase tracking-widest"><span>Progresso</span><span>{{ block.settings.progress }}%</span></div>
+                <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden"><div class="bg-[var(--z-acid)] h-full" style="width: {{ block.settings.progress }}%"></div></div>
+              </div>
+              <div class="space-y-3 mt-auto">
+                <div class="p-4 bg-white rounded-2xl border border-gray-100 text-[11px] font-black uppercase text-gray-500">{{ block.settings.commission }}</div>
+                <div class="p-4 bg-purple-50 rounded-2xl border border-purple-100 text-[11px] font-black uppercase text-[var(--z-purple)] flex items-center gap-3">
+                   <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="M20 6 9 17l-5-5"/></svg>
+                   {{ block.settings.prize }}
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. HALL DA FAMA PLACAS (STICKY STACK) -->
+  <section class="py-32 bg-[var(--z-dark)] z-plaque-stack-container">
+    <div class="container mx-auto px-6 max-w-2xl">
+      <div class="text-center mb-28">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur text-[var(--z-acid)] text-[10px] font-black uppercase tracking-widest mb-8">Hall da Fama</div>
+        <h2 class="text-4xl md:text-[6.5rem] font-black text-white tracking-tighter mb-8 uppercase leading-none">MATERIALIZE SUA <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-gray-200 via-white to-gray-500">CONQUISTA</span></h2>
+        <p class="text-gray-400 font-bold text-xl md:text-2xl leading-relaxed">Vender no digital é incrível, mas ter o reconhecimento na sua estante é lendário.</p>
+      </div>
+
+      <div class="relative">
+        {% for block in section.blocks %}
+          {% if block.type == 'plaque' %}
+            <div class="z-plaque-item" style="top: calc(12vh + {{ forloop.index0 | times: 15 }}px);" {{ block.shopify_attributes }}>
+               <div class="aspect-[4/5] rounded-[3.5rem] p-[3px] shadow-2xl" style="background: {{ block.settings.gradient_bg }};">
+                 <div class="w-full h-full z-glass rounded-[3.4rem] flex flex-col items-center justify-between p-14 text-center relative overflow-hidden group">
+                    <div class="absolute -top-[100%] -left-[100%] w-[200%] h-[200%] bg-gradient-to-br from-transparent via-white/10 to-transparent rotate-45 pointer-events-none group-hover:translate-x-full group-hover:translate-y-full transition-transform duration-1000"></div>
+                    <div class="text-[11px] font-black tracking-[0.5em] text-white opacity-40">ZENCIAL</div>
+                    <div class="relative">
+                      <span class="text-[8.5rem] md:text-[11rem] font-black text-white tracking-tighter leading-none" style="text-shadow: 0 30px 60px rgba(0,0,0,0.6);">{{ block.settings.value }}</span>
+                      <div class="h-2 w-20 bg-white/20 mx-auto mt-6 rounded-full"></div>
+                    </div>
+                    <div class="text-white">
+                      <p class="font-black uppercase tracking-[0.25em] text-2xl md:text-3xl mb-2">{{ block.settings.title }}</p>
+                      <p class="text-[11px] font-bold opacity-50 uppercase tracking-[0.3em]">{{ block.settings.subtitle }}</p>
+                    </div>
+                    {% if block.settings.is_exclusive %}
+                      <div class="absolute inset-0 border-[6px] border-[var(--z-acid)]/20 rounded-[3.4rem] animate-pulse pointer-events-none"></div>
+                    {% endif %}
+                 </div>
+               </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <p class="text-center text-[10px] text-gray-500 font-bold uppercase tracking-widest mt-24 px-12 leading-relaxed italic opacity-60">
+        *As placas são enviadas fisicamente para o endereço da creator após a validação dos dados de faturamento.
+      </p>
+    </div>
+  </section>
+
+  <!-- 7. FAQ ACCORDION -->
+  <section id="faq" class="py-32 bg-white">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-7xl font-black tracking-tighter uppercase mb-6 leading-none">DÚVIDAS <br/><span class="text-[var(--z-purple)]">FREQUENTES</span></h2>
+        <p class="text-gray-500 font-bold text-xl">Tudo o que você precisa saber antes de dar o play.</p>
+      </div>
+
+      <div class="space-y-5">
+        {% assign qs = "Preciso pagar ou comprar um kit para entrar?,Como recebo os produtos em casa?,O que acontece se eu não bater a meta do mês?,Como funcionam os pagamentos?,Preciso ter CNPJ?" | split: "," %}
+        {% assign ans = "Não. A Zencial é uma marca nativa digital e não cobramos taxa de adesão. Nosso modelo é baseado em performance: você vende e ganha comissão.,O envio de produtos físicos gratuitos (PR Kits) começa a partir do Nível 2. Ao atingir as primeiras metas de GMV, você desbloqueia o envio do kit.,Fique tranquila, você não perde seu cadastro. O programa foi desenhado para você crescer no seu ritmo.,Existem duas fontes: Comissão por Venda via TikTok Shop automática e Prêmios Físicos/Bônus Extra.,Pode começar como Pessoa Física (CPF). Recomendamos abertura de MEI a partir do nível Embaixadora." | split: "," %}
+        
+        {% for q in qs %}
+          <div class="z-faq-item border-2 border-gray-100 rounded-[2.5rem] overflow-hidden group transition-all hover:border-[var(--z-purple)]/40 shadow-sm">
+            <button class="z-faq-trigger w-full flex items-center justify-between p-10 text-left bg-white transition-colors">
+              <span class="font-black text-2xl text-gray-800 pr-8 group-hover:text-[var(--z-purple)] transition-colors">{{ q }}</span>
+              <div class="p-3 rounded-full bg-gray-50 text-gray-400 group-hover:bg-[var(--z-purple)] group-hover:text-white transition-all">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4"><path d="m6 9 6 6 6-6"/></svg>
+              </div>
+            </button>
+            <div class="z-faq-content px-10 text-gray-500 font-medium text-lg leading-relaxed">{{ ans[forloop.index0] }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. TERMOS LEGAIS -->
+  <footer class="py-20 bg-gray-50 border-t border-gray-200">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <h4 class="font-black text-gray-700 uppercase tracking-widest text-[11px] mb-10 underline decoration-[var(--z-pink)] decoration-2 underline-offset-8">Termos e Condições Safra 2025</h4>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-[10px] md:text-[11px] text-gray-400 font-bold uppercase tracking-widest leading-relaxed text-justify">
+        <p><strong>1. BENEFÍCIOS:</strong> A Zencial reserva-se o direito de alterar quaisquer prêmios conforme disponibilidade de estoque sem aviso prévio. Prêmios físicos são meramente ilustrativos.</p>
+        <p><strong>2. GMV:</strong> O cálculo do GMV considera apenas vendas confirmadas via API TikTok Shop. Vendas devolvidas não contam para o faturamento do mês.</p>
+        <p><strong>3. VÍNCULO:</strong> A participação não estabelece vínculo empregatício. Trata-se de uma parceria comercial baseada exclusivamente em performance de vendas.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // FAQ
+    const faqTriggers = document.querySelectorAll('.z-faq-trigger');
+    faqTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.z-faq-item');
+        const isActive = item.classList.contains('active');
+        document.querySelectorAll('.z-faq-item').forEach(i => i.classList.remove('active'));
+        if(!isActive) item.classList.add('active');
+        trigger.querySelector('svg').style.transform = item.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+      });
+    });
+
+    // Verificador
+    const vBtn = document.getElementById('v-btn');
+    const vInput = document.getElementById('v-input');
+    const vIdle = document.getElementById('v-idle');
+    const vLoading = document.getElementById('v-loading');
+    const vSuccess = document.getElementById('v-success');
+
+    vBtn.addEventListener('click', () => {
+      const user = vInput.value.trim();
+      if(!user) return;
+      vIdle.classList.add('hidden-state');
+      vLoading.classList.remove('hidden-state');
+      setTimeout(() => {
+        document.getElementById('v-avatar').src = `https://ui-avatars.com/api/?name=${user}&background=bef264&color=1c1917&size=128&bold=true`;
+        document.getElementById('v-name').innerText = user.toUpperCase();
+        document.getElementById('v-user').innerText = '@' + user;
+        vLoading.classList.add('hidden-state');
+        vSuccess.classList.remove('hidden-state');
+      }, 2500);
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Zencial Creators Final",
+  "tag": "section",
+  "class": "zencial-section",
+  "settings": [
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Cor de Fundo",
+      "default": "#f5f3ff"
+    },
+    {
+      "type": "color",
+      "id": "color_accent",
+      "label": "Cor de Destaque",
+      "default": "#ec4899"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Imagem Hero"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "Link de Inscrição"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "level",
+      "name": "Nível de Carreira",
+      "limit": 8,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Foto do Nível" },
+        { "type": "text", "id": "title", "label": "Nome do Nível", "default": "Afiliada Starter" },
+        { "type": "text", "id": "gmv_text", "label": "GMV Meta", "default": "Até R$ 50.000" },
+        { "type": "range", "id": "progress", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Progresso", "default": 10 },
+        { "type": "text", "id": "commission", "label": "Comissão", "default": "20% Comissão" },
+        { "type": "text", "id": "prize", "label": "Prêmio", "default": "Kit Zencial" }
+      ]
+    },
+    {
+      "type": "plaque",
+      "name": "Placa do Hall da Fama",
+      "limit": 4,
+      "settings": [
+        { "type": "text", "id": "value", "label": "Valor", "default": "100k" },
+        { "type": "text", "id": "title", "label": "Título", "default": "HIGH PERFORMER" },
+        { "type": "text", "id": "subtitle", "label": "Subtítulo", "default": "Consistência comprovada" },
+        { "type": "color_background", "id": "gradient_bg", "label": "Fundo da Placa", "default": "linear-gradient(135deg, #d1d5db 0%, #9ca3af 100%)" },
+        { "type": "checkbox", "id": "is_exclusive", "label": "Destaque Pulsante", "default": false }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Zencial Creators Final",
+      "blocks": [
+        { "type": "level", "settings": { "title": "Afiliada Starter", "gmv_text": "Até R$ 50k", "progress": 10, "commission": "20% Comissão", "prize": "Kit Zencial" } },
+        { "type": "level", "settings": { "title": "Afiliada Growth", "gmv_text": "R$ 50k – 100k", "progress": 20, "commission": "21% Comissão", "prize": "Placa Bronze" } },
+        { "type": "level", "settings": { "title": "High Performer", "gmv_text": "R$ 100k – 500k", "progress": 35, "commission": "22% Comissão", "prize": "Microfone Pro" } },
+        { "type": "level", "settings": { "title": "Elite Performer", "gmv_text": "R$ 500k – 1M", "progress": 50, "commission": "23% Comissão", "prize": "Destaque VIP" } },
+        { "type": "level", "settings": { "title": "Creator Pro", "gmv_text": "R$ 1M+", "progress": 65, "commission": "25% Comissão", "prize": "iPhone 16 Pro" } },
+        { "type": "level", "settings": { "title": "Embaixadora", "gmv_text": "R$ 5M+", "progress": 80, "commission": "Participação", "prize": "Resort NE" } },
+        { "type": "level", "settings": { "title": "Elite Zencial", "gmv_text": "R$ 10M+", "progress": 90, "commission": "Elite Vigente", "prize": "Maldivas" } },
+        { "type": "level", "settings": { "title": "Extraordinária", "gmv_text": "R$ 50M+", "progress": 100, "commission": "Máxima", "prize": "Carro de Luxo" } },
+        { "type": "plaque", "settings": { "value": "50k", "title": "AFILIADA GROWTH", "gradient_bg": "linear-gradient(135deg, #e5e7eb 0%, #9ca3af 100%)" } },
+        { "type": "plaque", "settings": { "value": "100k", "title": "HIGH PERFORMER", "gradient_bg": "linear-gradient(135deg, #fde68a 0%, #d97706 100%)" } },
+        { "type": "plaque", "settings": { "value": "1M", "title": "CREATOR PRO", "gradient_bg": "linear-gradient(135deg, #67e8f9 0%, #4f46e5 100%)" } },
+        { "type": "plaque", "settings": { "value": "50M", "title": "PLACA ÍCONE", "gradient_bg": "linear-gradient(135deg, #1f2937 0%, #000000 100%)", "is_exclusive": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}
