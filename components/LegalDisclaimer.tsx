@@ -13,7 +13,7 @@ const LegalDisclaimer: React.FC = () => {
 
            <div className="space-y-4 text-xs md:text-sm text-gray-500 leading-relaxed text-justify md:text-left">
               <h4 className="font-black text-gray-700 uppercase tracking-widest text-xs mb-2">
-                 Termos e Condições da Campanha Safra 2026
+                 Termos e Condições da Campanha Zencial Creators
               </h4>
               <p>
                  <strong>1. Alteração de Benefícios:</strong> A Zencial reserva-se o direito de alterar, substituir, suspender ou cancelar quaisquer prêmios físicos, bônus monetários, percentuais de comissão e critérios de qualificação apresentados nesta página a qualquer momento, sem aviso prévio. Os prêmios exibidos são ilustrativos e dependem da disponibilidade de estoque no momento da conquista. Em caso de indisponibilidade, o prêmio será substituído por outro de valor equivalente ou superior.
