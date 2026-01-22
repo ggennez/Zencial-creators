@@ -103,7 +103,7 @@ const ProfileVerifier: React.FC = () => {
           <div className="text-center animate-slide-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 backdrop-blur-md text-red-400 font-bold text-[10px] md:text-xs tracking-widest uppercase mb-8 shadow-lg">
               <AlertTriangle size={12} className="md:w-3.5 md:h-3.5" />
-              <span>Alta Concorrência • Safra 2026</span>
+              <span>Alta Concorrência • Zencial Creators 2026</span>
             </div>
             <h2 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter leading-none uppercase">
               ANÁLISE DE <span className="text-transparent bg-clip-text bg-gradient-to-r from-zencial-pink to-purple-500">POTENCIAL</span>
