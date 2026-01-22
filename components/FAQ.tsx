@@ -8,11 +8,11 @@ const QUESTIONS = [
   },
   {
     q: "Como recebo os produtos em casa?",
-    a: "O envio de produtos físicos gratuitos (PR Kits) começa a partir do Nível 2 (Rising Star). Ao atingir as primeiras metas de GMV (vendas), você desbloqueia o envio do kit para produção de conteúdo original. Creators de alta performance recebem lançamentos em primeira mão."
+    a: "Você terá acesso aos nossos produtos pela plaforma, ao atingir o nível necessário, libera a solicitação de amostras. Ao atingir metas mais altas de GMV (vendas), você desbloqueia o envio do kit para produção de conteúdo original. Creators de alta performance recebem lançamentos em primeira mão."
   },
   {
     q: "O que acontece se eu não bater a meta do mês?",
-    a: "Fique tranquila, você não perde seu cadastro. O programa foi desenhado para você crescer no seu ritmo. Se não bater a meta de GMV para subir de nível, você apenas permanece no nível atual. Não há 'rebaixamento' nem multas."
+    a: "Fique tranquilo, você não perde seu cadastro. O programa foi desenhado para você crescer no seu ritmo. Se não bater a meta de GMV para subir de nível, você apenas permanece no nível atual. Não há 'rebaixamento' nem multas."
   },
   {
     q: "Como funcionam os pagamentos?",
@@ -20,7 +20,7 @@ const QUESTIONS = [
   },
   {
     q: "Preciso ter CNPJ?",
-    a: "Para o nível Starter e Rising Star, você pode atuar como Pessoa Física (CPF) recebendo pelo TikTok. A partir do nível Embaixadora, onde os valores costumam ser mais altos, recomendamos e orientamos a abertura de MEI para melhor gestão fiscal, mas não é obrigatório para o cadastro inicial."
+    a: "Para os primeiros níveis você pode atuar como Pessoa Física (CPF) recebendo pelo TikTok. A partir do nível 3, onde os valores costumam ser mais altos, recomendamos e orientamos a abertura de MEI para melhor gestão fiscal, mas não é obrigatório para o cadastro inicial."
   }
 ];
 

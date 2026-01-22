@@ -1,3 +1,4 @@
+
 import { CareerLevel } from './types';
 import { Gift, GraduationCap, Users, Trophy } from 'lucide-react';
 import React from 'react';
@@ -6,73 +7,73 @@ export const CAREER_LEVELS: CareerLevel[] = [
   {
     level: 1,
     title: "Afiliada Starter",
-    description: "GMV: até R$ 50.000",
+    description: "GMV: até 50K",
     benefits: ["20% de Comissão", "Prêmio: Kit Zencial", "Acesso ao programa"],
-    // Image: Woman applying cream in mirror, focus on daily routine
-    image: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=800&auto=format&fit=crop",
+    // Represents the unboxing of the first kit
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__aplique-a-zencialbox-trocando-as-caixas-aplique-a-__64733.png?v=1769096009?q=80&w=1200&auto=format&fit=crop", 
     progress: 10
   },
   {
     level: 2,
     title: "Afiliada Growth",
-    description: "GMV: R$ 50k – 100k",
+    description: "GMV: 50k",
     benefits: ["20% + 1% de Comissão", "Prêmio: Placa de Reconhecimento"],
-    // Image: Close up of woman using a serum dropper, dermocosmetic focus
-    image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=800&auto=format&fit=crop",
+    // Represents a more professional home studio setup
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__faa-a-moa-segurando-uma-pequena-zencialbox-a-cena-__64736.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 20
   },
   {
     level: 3,
     title: "High Performer",
-    description: "GMV: R$ 100k – 500k",
-    benefits: ["21% + 1% de Comissão", "Prêmio: Placa High Performer", "Prêmio: Microfone + Destaque"],
-    // Image: Applying moisturizer, focus on texture and skin health
-    image: "https://images.unsplash.com/photo-1571781565023-40f8d4752a39?q=80&w=800&auto=format&fit=crop",
+    description: "GMV: 100k",
+    benefits: ["21% + 1% de Comissão", "Prêmio: Placa High Performer + Destaque", "Prêmio: Microfone"],
+    // Represents live streaming and professional gear
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-o-controle-por-uma-zencialbox-pequena-troqu__64734.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 35
   },
   {
     level: 4,
     title: "Elite Performer",
-    description: "GMV: R$ 500k – 1M",
+    description: "GMV 500k",
     benefits: ["22% + 1% de Comissão", "Prêmio: Placa Elite Performer", "Acesso Prioritário"],
-    // Image: Using a Gua Sha or facial roller tool, advanced self-care
-    image: "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=800&auto=format&fit=crop",
+    // Represents sophisticated fashion/influencer photography
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__remova-os-papeis-marrons-de-dentro-da-caixa-brtroq__83786.png?v=1769096237?q=80&w=1200&auto=format&fit=crop",
     progress: 50
   },
   {
     level: 5,
     title: "Creator Pro",
-    description: "GMV: R$ 1M+",
+    description: "GMV: 1M",
     benefits: ["23% + 2% de Comissão", "Prêmio: Placa Creator Pro", "Prêmio: iPhone + Selo Oficial"],
-    // Image: Influencer recording content with ring light, professional setup
-    image: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=800&auto=format&fit=crop",
+    // Represents tech luxury (iPhone/Vlogging gear)
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-e-o__47573.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 65
   },
   {
     level: 6,
     title: "Embaixadora",
-    description: "GMV: R$ 5M+",
+    description: "GMV: 5M",
     benefits: ["25% + 2% de Comissão", "Prêmio: Placa Embaixadora", "Prêmio: Resort no Nordeste"],
-    // Image: Spa day, facial treatment, relaxation and luxury
-    image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop",
+    // Represents luxury resort and travel
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__text-to-image__64737.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 80
   },
   {
     level: 7,
     title: "Elite Zencial",
-    description: "GMV: R$ 10M+",
+    description: "GMV: 10M",
     benefits: ["Comissão Pro Vigente", "Prêmio: Placa Elite", "Prêmio: Viagem para Maldivas"],
-    // Image: High-end aesthetic, holding luxury product bottle
-    image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=800&auto=format&fit=crop",
+    // Represents international high-end travel (Maldives)
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-a-bota-por-uma-zencialbox-pequena-troque-a-__64735.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 90
   },
   {
     level: 8,
     title: "Extraordinária",
-    description: "GMV: R$ 50M+",
+    description: "GMV: 50M+",
     benefits: ["Comissão Máxima", "Prêmio: Placa Ícone", "Prêmio: Carro de Luxo"],
-    // Image: Radiant glowing skin close-up, peak beauty
-    image: "https://images.unsplash.com/photo-1583209814683-c023dd293cc6?q=80&w=800&auto=format&fit=crop",
+    // Represents the pinnacle of success (Luxury automotive/Icon status)
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-em-__47574.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 100
   }
 ];
