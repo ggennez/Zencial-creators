@@ -66,16 +66,22 @@ const ProfileVerifier: React.FC = () => {
   };
 
   const handleFormSubmit = () => {
-    setIsSubmitting(true);
-  };
+  submittedRef.current = true;
+  setIsSubmitting(true);
+};
 
   const handleIframeLoad = () => {
-    if (isSubmitting) {
-      setIsSubmitting(false);
-      setStatus(VerificationStatus.FINISHED);
-      window.scrollTo({ top: document.getElementById('verify')?.offsetTop, behavior: 'smooth' });
-    }
-  };
+  if (!submittedRef.current) return;
+
+  submittedRef.current = false;
+  setIsSubmitting(false);
+  setStatus(VerificationStatus.FINISHED);
+
+  window.scrollTo({
+    top: document.getElementById('verify')?.offsetTop || 0,
+    behavior: 'smooth'
+  });
+};
 
   const handleOtherCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setShowOtherInput(e.target.checked);
@@ -97,7 +103,7 @@ const ProfileVerifier: React.FC = () => {
           <div className="text-center animate-slide-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 backdrop-blur-md text-red-400 font-bold text-[10px] md:text-xs tracking-widest uppercase mb-8 shadow-lg">
               <AlertTriangle size={12} className="md:w-3.5 md:h-3.5" />
-              <span>Alta Concorrência • Safra 2025</span>
+              <span>Alta Concorrência • Safra 2026</span>
             </div>
             <h2 className="text-4xl md:text-7xl font-black text-white mb-6 tracking-tighter leading-none uppercase">
               ANÁLISE DE <span className="text-transparent bg-clip-text bg-gradient-to-r from-zencial-pink to-purple-500">POTENCIAL</span>
@@ -166,7 +172,7 @@ const ProfileVerifier: React.FC = () => {
                   PERFIL <span className="text-zencial-acid">APROVADO!</span>
                </h2>
                <p className="text-gray-300 text-lg font-medium max-w-2xl mx-auto">
-                  Parabéns! Seu perfil <strong>@{username}</strong> foi aprovado pelo protocolo Zencial 2025. Agora precisamos dos seus dados para oficializar sua entrada no time.
+                  Parabéns! Seu perfil <strong>@{username}</strong> foi aprovado pelo protocolo Zencial 2026. Agora precisamos dos seus dados para oficializar sua entrada no time.
                </p>
             </div>
 
@@ -181,14 +187,16 @@ const ProfileVerifier: React.FC = () => {
                 onLoad={handleIframeLoad}
               />
 
-              <form 
+              <form
                 ref={formRef}
-                action="https://docs.google.com/forms/d/e/1FAIpQLScKFTq-9Y0m8jlJHw5aVDR9_xE2-vG0et2HEQt4prz3N3Lx9w/formResponse" 
-                method="POST" 
-                target="hidden_iframe" 
+                action="https://docs.google.com/forms/d/e/1FAIpQLScKFTq-9Y0m8jlJHw5aVDR9_xE2-vG0et2HEQt4prz3N3Lx9w/formResponse"
+                method="POST"
+                target="hidden_iframe"
                 className="space-y-10"
                 onSubmit={handleFormSubmit}
+                style={{ display: status === VerificationStatus.SUCCESS ? 'block' : 'none' }}
               >
+                
                 {/* Pre-filled TikTok User from Diagnostic */}
                 <input type="hidden" name="entry.420225288" value={`@${username}`} />
 
