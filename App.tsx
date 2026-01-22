@@ -29,7 +29,7 @@ function App() {
                     <div key={`t1-${i}`} className="flex items-center gap-8 px-4">
                        <span className="font-bold uppercase tracking-widest text-sm text-zencial-acid">SEJA UM CREATOR ZENCIAL</span>
                        <Zap size={14} className="text-white/50" />
-                       <span className="font-bold uppercase tracking-widest text-sm text-white">SAFRA 2025</span>
+                       <span className="font-bold uppercase tracking-widest text-sm text-white">ZENCIAL CREATORS 2026</span>
                        <Zap size={14} className="text-white/50" />
                        <span className="font-bold uppercase tracking-widest text-sm text-zencial-pink">VAGAS ABERTAS</span>
                        <Zap size={14} className="text-white/50" />
@@ -41,7 +41,7 @@ function App() {
                     <div key={`t2-${i}`} className="flex items-center gap-8 px-4">
                        <span className="font-bold uppercase tracking-widest text-sm text-zencial-acid">SEJA UM CREATOR ZENCIAL</span>
                        <Zap size={14} className="text-white/50" />
-                       <span className="font-bold uppercase tracking-widest text-sm text-white">SAFRA 2025</span>
+                       <span className="font-bold uppercase tracking-widest text-sm text-white">ZENCIAL CREATORS 2026</span>
                        <Zap size={14} className="text-white/50" />
                        <span className="font-bold uppercase tracking-widest text-sm text-zencial-pink">VAGAS ABERTAS</span>
                        <Zap size={14} className="text-white/50" />
