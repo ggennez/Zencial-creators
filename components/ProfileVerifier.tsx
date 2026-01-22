@@ -352,7 +352,7 @@ const ProfileVerifier: React.FC = () => {
                 </a>
              </div>
              <p className="mt-8 text-gray-500 font-bold uppercase tracking-widest text-xs">
-                © 2025 ZENCIAL CREATORS • BEM-VINDO AO TOPO
+                © 2026 ZENCIAL CREATORS • BEM-VINDO AO TOPO
              </p>
           </div>
         )}
