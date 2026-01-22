@@ -10,7 +10,7 @@ const CareerPath: React.FC = () => {
         
         {/* Header - Centralized */}
         <div className="mb-12 md:mb-20 text-center flex flex-col items-center">
-            <p className="text-zencial-pink font-black tracking-[0.3em] uppercase text-xs md:text-sm mb-4">ROADMAP 2025</p>
+            <p className="text-zencial-pink font-black tracking-[0.3em] uppercase text-xs md:text-sm mb-4">ROADMAP</p>
             <h2 className="text-[2.5rem] md:text-[6rem] font-black text-zencial-dark tracking-tighter uppercase leading-[0.9] mb-8">
               Plano de <br/>
               <span className="text-zencial-purple">Ascensão</span>
