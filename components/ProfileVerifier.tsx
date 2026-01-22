@@ -31,6 +31,7 @@ const ProfileVerifier: React.FC = () => {
   // Refs for form handling
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const submittedRef = useRef(false);
 
   const loadingTexts = [
     "Iniciando varredura de metadados...",
