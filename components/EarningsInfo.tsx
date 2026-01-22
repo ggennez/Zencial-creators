@@ -42,7 +42,7 @@ const EarningsInfo: React.FC = () => {
              </button>
         </div>
         <p className="text-center mt-6 text-[10px] md:text-sm font-bold text-zencial-dark/30 uppercase tracking-[0.2em]">
-           Vagas Limitadas • Safra 2025
+           Vagas Limitadas • Zencial Creators 2026
         </p>
       </div>
     </section>
