@@ -8,17 +8,22 @@ export const CAREER_LEVELS: CareerLevel[] = [
     level: 1,
     title: "Afiliada Starter",
     description: "GMV: até 50K",
-    benefits: ["20% de Comissão", "Prêmio: Kit Zencial", "Acesso ao programa"],
-    // Represents the unboxing of the first kit
-    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__aplique-a-zencialbox-trocando-as-caixas-aplique-a-__64733.png?v=1769096009?q=80&w=1200&auto=format&fit=crop", 
+    benefits: [
+      "15% de Comissão",
+      "Prêmio: Kit Zencial",
+      "Acesso ao programa"
+    ],
+    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__aplique-a-zencialbox-trocando-as-caixas-aplique-a-__64733.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 10
   },
   {
     level: 2,
     title: "Afiliada Growth",
     description: "GMV: 50k",
-    benefits: ["20% + 1% de Comissão", "Prêmio: Placa de Reconhecimento"],
-    // Represents a more professional home studio setup
+    benefits: [
+      "15% + 1% de Comissão",
+      "Prêmio: Placa de Reconhecimento"
+    ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__faa-a-moa-segurando-uma-pequena-zencialbox-a-cena-__64736.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 20
   },
@@ -26,17 +31,23 @@ export const CAREER_LEVELS: CareerLevel[] = [
     level: 3,
     title: "High Performer",
     description: "GMV: 100k",
-    benefits: ["21% + 1% de Comissão", "Prêmio: Placa High Performer + Destaque", "Prêmio: Microfone"],
-    // Represents live streaming and professional gear
+    benefits: [
+      "16% + 1% de Comissão",
+      "Prêmio: Placa High Performer + Destaque",
+      "Prêmio: Microfone"
+    ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-o-controle-por-uma-zencialbox-pequena-troqu__64734.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 35
   },
   {
     level: 4,
     title: "Elite Performer",
-    description: "GMV 500k",
-    benefits: ["22% + 1% de Comissão", "Prêmio: Placa Elite Performer", "Acesso Prioritário"],
-    // Represents sophisticated fashion/influencer photography
+    description: "GMV: 500k",
+    benefits: [
+      "17% + 1% de Comissão",
+      "Prêmio: Placa Elite Performer",
+      "Acesso Prioritário"
+    ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__remova-os-papeis-marrons-de-dentro-da-caixa-brtroq__83786.png?v=1769096237?q=80&w=1200&auto=format&fit=crop",
     progress: 50
   },
@@ -44,8 +55,11 @@ export const CAREER_LEVELS: CareerLevel[] = [
     level: 5,
     title: "Creator Pro",
     description: "GMV: 1M",
-    benefits: ["23% + 2% de Comissão", "Prêmio: Placa Creator Pro", "Prêmio: iPhone + Selo Oficial"],
-    // Represents tech luxury (iPhone/Vlogging gear)
+    benefits: [
+      "18% + 1% de Comissão",
+      "Prêmio: Placa Creator Pro",
+      "Prêmio: iPhone + Selo Oficial"
+    ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-e-o__47573.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 65
   },
@@ -53,8 +67,11 @@ export const CAREER_LEVELS: CareerLevel[] = [
     level: 6,
     title: "Embaixadora",
     description: "GMV: 5M",
-    benefits: ["25% + 2% de Comissão", "Prêmio: Placa Embaixadora", "Prêmio: Resort no Nordeste"],
-    // Represents luxury resort and travel
+    benefits: [
+      "19% + 1% de Comissão",
+      "Prêmio: Placa Embaixadora",
+      "Prêmio: Resort no Nordeste"
+    ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__text-to-image__64737.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 80
   },
@@ -62,8 +79,10 @@ export const CAREER_LEVELS: CareerLevel[] = [
     level: 7,
     title: "Elite Zencial",
     description: "GMV: 10M",
-    benefits: ["Comissão Pro Vigente", "Prêmio: Placa Elite", "Prêmio: Viagem para Maldivas"],
-    // Represents international high-end travel (Maldives)
+    benefits: [
+      "Prêmio: Placa Elite",
+      "Prêmio: Viagem para Maldivas"
+    ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-a-bota-por-uma-zencialbox-pequena-troque-a-__64735.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 90
   },
@@ -71,8 +90,10 @@ export const CAREER_LEVELS: CareerLevel[] = [
     level: 8,
     title: "Extraordinária",
     description: "GMV: 50M+",
-    benefits: ["Comissão Máxima", "Prêmio: Placa Ícone", "Prêmio: Carro de Luxo"],
-    // Represents the pinnacle of success (Luxury automotive/Icon status)
+    benefits: [
+      "Prêmio: Placa Ícone",
+      "Prêmio: Carro de Luxo"
+    ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-em-__47574.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 100
   }
