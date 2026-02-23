@@ -34,7 +34,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     benefits: [
       "16% + 1% de Comissão",
       "Prêmio: Placa High Performer + Destaque",
-      "Prêmio: Microfone"
+      "Prêmio: Garrafa Térmica Creator"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-o-controle-por-uma-zencialbox-pequena-troqu__64734.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 35
@@ -58,7 +58,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     benefits: [
       "18% + 1% de Comissão",
       "Prêmio: Placa Creator Pro",
-      "Prêmio: iPhone + Selo Oficial"
+      "Prêmio: Microfone"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-e-o__47573.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 65
