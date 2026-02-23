@@ -46,7 +46,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     benefits: [
       "17% + 1% de Comissão",
       "Prêmio: Placa Elite Performer",
-      "Acesso Prioritário"
+      "Prêmio: Microfone"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__remova-os-papeis-marrons-de-dentro-da-caixa-brtroq__83786.png?v=1769096237?q=80&w=1200&auto=format&fit=crop",
     progress: 50
@@ -58,7 +58,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     benefits: [
       "18% + 1% de Comissão",
       "Prêmio: Placa Creator Pro",
-      "Prêmio: Microfone"
+      "Acesso Prioritário"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-e-o__47573.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 65
