@@ -1,20 +1,10 @@
-
 import React from 'react';
 import { Award, Star, Crown, Zap } from 'lucide-react';
 
 const PLAQUES = [
   {
-    value: "50k",
-    title: "AFILIADA GROWTH",
-    desc: "O primeiro grande marco.",
-    gradient: "bg-gradient-to-br from-gray-100 to-gray-300",
-    text: "text-gray-800",
-    shadow: "shadow-gray-200/50",
-    icon: <Star className="w-8 h-8 md:w-10 md:h-10 opacity-50" />
-  },
-  {
     value: "100k",
-    title: "HIGH PERFORMER",
+    title: "CREATOR PRO",
     desc: "Consistência comprovada.",
     gradient: "bg-gradient-to-br from-yellow-200 via-yellow-400 to-yellow-600",
     text: "text-yellow-900",
@@ -22,8 +12,17 @@ const PLAQUES = [
     icon: <Award className="w-8 h-8 md:w-10 md:h-10 opacity-50" />
   },
   {
+    value: "500k",
+    title: "ELITE CREATOR",
+    desc: "Performance de alto nível.",
+    gradient: "bg-gradient-to-br from-rose-300 via-pink-500 to-fuchsia-600",
+    text: "text-white",
+    shadow: "shadow-pink-400/50",
+    icon: <Star className="w-8 h-8 md:w-10 md:h-10 text-white opacity-80" />
+  },
+  {
     value: "1M",
-    title: "CREATOR PRO",
+    title: "ZENCIAL ELITE",
     desc: "Elite do TikTok Shop.",
     gradient: "bg-gradient-to-br from-cyan-300 via-blue-400 to-purple-500",
     text: "text-white",
@@ -31,9 +30,9 @@ const PLAQUES = [
     icon: <Zap className="w-8 h-8 md:w-10 md:h-10 text-white opacity-80" />
   },
   {
-    value: "50M",
-    title: "PLACA ÍCONE",
-    desc: "O topo absoluto.",
+    value: "5M",
+    title: "EMBAIXADORA ZENCIAL",
+    desc: "O rosto da Zencial.",
     gradient: "bg-gradient-to-br from-neutral-800 to-black",
     text: "text-white",
     shadow: "shadow-black/50",
@@ -71,8 +70,6 @@ const Recognition: React.FC = () => {
             className="sticky top-[15vh] w-full"
             style={{
               zIndex: 10 + index,
-              // Margin bottom provides the spacing between card "arrivals"
-              // The last card also has margin so the scroll "stays" on it before proceeding.
               marginBottom: '80vh' 
             }}
           >
@@ -111,8 +108,8 @@ const Recognition: React.FC = () => {
                         <p className="text-[10px] md:text-xs font-bold opacity-60 uppercase tracking-[0.3em]">{plaque.desc}</p>
                     </div>
 
-                    {/* Elite Glow for 50M */}
-                    {plaque.value === '50M' && (
+                    {/* Elite Glow for 5M */}
+                    {plaque.value === '5M' && (
                         <div className="absolute inset-0 border-[12px] border-zencial-acid/20 rounded-[30px] md:rounded-[46px] animate-pulse pointer-events-none z-20"></div>
                     )}
                 </div>
