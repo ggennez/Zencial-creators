@@ -20,8 +20,8 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Growth Creator",
     description: "GMV: acima de 50K",
     benefits: [
-      "15% + 1% de Comissão",
-      "Prêmio: Placa de Reconhecimento"
+      "17% de Comissão",
+      "Prêmio: Garrafa Térmica Creator"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__faa-a-moa-segurando-uma-pequena-zencialbox-a-cena-__64736.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 20
@@ -31,9 +31,8 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Creator Pro",
     description: "GMV: acima de 100K",
     benefits: [
-      "19% + 1% de Comissão (20% total)",
-      "Prêmio: Placa Creator Pro + Destaque",
-      "Prêmio: Garrafa Térmica Creator"
+      "20% de Comissão",
+      "Prêmio: Placa Creator Pro"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-o-controle-por-uma-zencialbox-pequena-troqu__64734.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 35
@@ -43,7 +42,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Elite Creator",
     description: "GMV: acima de 500K",
     benefits: [
-      "17% + 1% de Comissão",
+      "20% de Comissão",
       "Prêmio: Placa Elite Creator",
       "Prêmio: Microfone"
     ],
@@ -55,9 +54,9 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Zencial Elite",
     description: "GMV: acima de 1M",
     benefits: [
-      "18% + 1% de Comissão",
+      "20% de Comissão",
       "Prêmio: Placa Zencial Elite",
-      "Acesso Prioritário"
+      "Prêmio: iPhone"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-e-o__47573.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 65
@@ -67,9 +66,9 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Embaixadora Zencial",
     description: "GMV: acima de 5M",
     benefits: [
-      "19% + 1% de Comissão",
+      "20% de Comissão",
       "Prêmio: Placa Embaixadora Zencial",
-      "Prêmio: Resort no Nordeste"
+      "Prêmio: MacBook"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__text-to-image__64737.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 80
@@ -79,8 +78,8 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Icon Creator",
     description: "GMV: acima de 10M",
     benefits: [
-      "Prêmio: Placa Icon Creator",
-      "Prêmio: Viagem para Maldivas"
+      "20% de Comissão",
+      "Prêmio: Viagem Internacional"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-a-bota-por-uma-zencialbox-pequena-troque-a-__64735.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 90
@@ -90,7 +89,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Legend Creator",
     description: "GMV: acima de 50M",
     benefits: [
-      "Prêmio: Placa Legend Creator",
+      "20% de Comissão",
       "Prêmio: Carro de Luxo"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-em-__47574.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
