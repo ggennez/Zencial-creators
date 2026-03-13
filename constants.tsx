@@ -41,7 +41,8 @@ export const CAREER_LEVELS: CareerLevel[] = [
     description: "GMV: acima de 500K",
     benefits: [
       "20% de Comissão",
-      "Prêmio: Placa Elite Creator"
+      "Prêmio: Placa Elite Creator",
+      "Prêmio: Microfone"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__remova-os-papeis-marrons-de-dentro-da-caixa-brtroq__83786.png?v=1769096237?q=80&w=1200&auto=format&fit=crop",
     progress: 50
@@ -52,8 +53,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     description: "GMV: acima de 1M",
     benefits: [
       "20% de Comissão",
-      "Prêmio: Placa Zencial Elite",
-      "Prêmio: iPhone"
+      "Prêmio: Placa Zencial Elite"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-e-o__47573.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 65
@@ -64,34 +64,12 @@ export const CAREER_LEVELS: CareerLevel[] = [
     description: "GMV: acima de 5M",
     benefits: [
       "20% de Comissão",
-      "Prêmio: Placa Embaixadora Zencial",
-      "Prêmio: MacBook"
+      "Prêmio: Placa Embaixadora Zencial"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__text-to-image__64737.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 80
   },
-  {
-    level: 7,
-    title: "Icon Creator",
-    description: "GMV: acima de 10M",
-    benefits: [
-      "20% de Comissão",
-      "Prêmio: Viagem Internacional"
-    ],
-    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-a-bota-por-uma-zencialbox-pequena-troque-a-__64735.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
-    progress: 90
-  },
-  {
-    level: 8,
-    title: "Legend Creator",
-    description: "GMV: acima de 50M",
-    benefits: [
-      "20% de Comissão",
-      "Prêmio: Carro de Luxo"
-    ],
-    image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__quero-uma-cena-semelhante-mas-com-outra-modelo-em-__47574.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
-    progress: 100
-  }
+
 ];
 
 export const BENEFITS_ICONS = [
