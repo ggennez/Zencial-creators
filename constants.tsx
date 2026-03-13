@@ -8,9 +8,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Starter",
     description: "GMV: até 50K",
     benefits: [
-      "15% de Comissão",
-      "Prêmio: Kit Zencial",
-      "Acesso ao programa"
+      "15% de Comissão"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__aplique-a-zencialbox-trocando-as-caixas-aplique-a-__64733.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 10
@@ -20,8 +18,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     title: "Growth Creator",
     description: "GMV: acima de 50K",
     benefits: [
-      "17% de Comissão",
-      "Prêmio: Garrafa Térmica Creator"
+      "17% de Comissão"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__faa-a-moa-segurando-uma-pequena-zencialbox-a-cena-__64736.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 20
@@ -32,7 +29,8 @@ export const CAREER_LEVELS: CareerLevel[] = [
     description: "GMV: acima de 100K",
     benefits: [
       "20% de Comissão",
-      "Prêmio: Placa Creator Pro"
+      "Prêmio: Placa Creator Pro",
+      "Prêmio: Garrafa Térmica Creator"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__troque-o-controle-por-uma-zencialbox-pequena-troqu__64734.png?v=1769096009?q=80&w=1200&auto=format&fit=crop",
     progress: 35
@@ -43,8 +41,7 @@ export const CAREER_LEVELS: CareerLevel[] = [
     description: "GMV: acima de 500K",
     benefits: [
       "20% de Comissão",
-      "Prêmio: Placa Elite Creator",
-      "Prêmio: Microfone"
+      "Prêmio: Placa Elite Creator"
     ],
     image: "https://cdn.shopify.com/s/files/1/0673/0950/2681/files/freepik__remova-os-papeis-marrons-de-dentro-da-caixa-brtroq__83786.png?v=1769096237?q=80&w=1200&auto=format&fit=crop",
     progress: 50
